@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Barcode } from '@capacitor-mlkit/barcode-scanning';
+import { ScannerService } from '../services/scanner.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,13 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  public barcodes: Barcode[] = [];
 
+  constructor(
+    private scannerService: ScannerService,
+  ) {}
+
+  ionViewWillEnter() {
+    this.barcodes = this.scannerService.barcodes;
+  }
 }

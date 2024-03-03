@@ -1,17 +1,50 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Codes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card *ngFor="let barcode of barcodes">
+    <ion-card-content>
+      <ion-item>
+        <ion-input
+          type="text"
+          readonly
+          [value]="barcode.bytes?.toString() || ''"
+          label="Bytes"
+          labelPlacement="fixed"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          type="text"
+          readonly
+          [value]="barcode.cornerPoints?.toString() || ''"
+          label="Corner points"
+          labelPlacement="fixed"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          type="text"
+          readonly
+          [value]="barcode.displayValue"
+          label="Display Value"
+          labelPlacement="fixed"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" readonly [value]="barcode.format" label="Format" labelPlacement="fixed"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" readonly [value]="barcode.rawValue" label="Raw value" labelPlacement="fixed"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" readonly [value]="barcode.valueType" label="Value Type" labelPlacement="fixed"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
