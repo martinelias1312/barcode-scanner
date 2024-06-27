@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'barcode-scanner',
+  appId: 'io.test.app',
+  appName: 'test-app',
   webDir: 'www',
   server: {
     androidScheme: 'https'
