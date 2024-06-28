@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'face-detection',
+    loadChildren: () => import('./face-detection/face-detection.module').then( m => m.FaceDetectionPageModule)
   }
 ];
 @NgModule({
